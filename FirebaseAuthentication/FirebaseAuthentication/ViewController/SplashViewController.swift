@@ -1,13 +1,8 @@
-//
-//  ViewController.swift
-//  FirebaseAuthentication
-//
-//  Created by Ghaiath Alhereh on 21.06.23.
-//
+ 
 
 import UIKit
 
-class ViewController: UIViewController {
+class SplashViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
