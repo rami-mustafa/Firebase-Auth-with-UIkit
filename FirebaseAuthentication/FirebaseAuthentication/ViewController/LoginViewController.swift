@@ -1,6 +1,7 @@
 
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -16,6 +17,29 @@ class LoginViewController: UIViewController {
     
 
     @IBAction func onLoginButtonTap(_ sender: Any) {
+        let email = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+
+        if !email.isEmpty && !password.isEmpty  {
+//            attempt login
+            
+            Auth.auth().signIn(withEmail: email, password: password) { auth, error in
+                
+                if error == nil {
+//                    Navigate to the home page
+                    self.navigateToHomePage()
+                } else {
+//                    present an error message
+                    
+                    self.presentInvalidLoginMessage()
+
+                }
+            }
+            
+        } else {
+         presentEmptyErrorMessage()
+            
+        }
     }
     
     
@@ -24,5 +48,24 @@ class LoginViewController: UIViewController {
         self.view.window?.rootViewController = vc
     }
     
+    
+    private func presentEmptyErrorMessage() {
+        
+        let alert = UIAlertController(title: "Error", message: "Please enter an email and password.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert,animated: true)
+    }
 
+    
+    private func presentInvalidLoginMessage() {
+        
+        let alert = UIAlertController(title: "Error", message: "Credentials you entered were invalid. Please check them and try again.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert,animated: true)
+    }
+    
+    private func navigateToHomePage() {
+        let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "HomeViewController")
+        self.view.window?.rootViewController = vc
+    }
 }
