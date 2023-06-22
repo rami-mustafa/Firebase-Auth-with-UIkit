@@ -41,6 +41,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		386909112A44865F00582AAD /* Application  */ = {
+			isa = PBXGroup;
+			children = (
+				389D32172A43138B003BDE69 /* SceneDelegate.swift */,
+				389D32152A43138B003BDE69 /* AppDelegate.swift */,
+			);
+			path = "Application ";
+			sourceTree = "<group>";
+		};
+		386909122A4486F800582AAD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				389D32192A43138B003BDE69 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		386909132A44872100582AAD /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				389D321B2A43138B003BDE69 /* Main.storyboard */,
+				389D32202A43138C003BDE69 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		389D32092A43138B003BDE69 = {
 			isa = PBXGroup;
 			children = (
@@ -60,13 +86,11 @@
 		389D32142A43138B003BDE69 /* FirebaseAuthentication */ = {
 			isa = PBXGroup;
 			children = (
-				389D32152A43138B003BDE69 /* AppDelegate.swift */,
-				389D32172A43138B003BDE69 /* SceneDelegate.swift */,
-				389D32192A43138B003BDE69 /* ViewController.swift */,
-				389D321B2A43138B003BDE69 /* Main.storyboard */,
-				38096E4B2A4376EC0079F20B /* GoogleService-Info.plist */,
+				386909112A44865F00582AAD /* Application  */,
+				386909122A4486F800582AAD /* ViewController */,
+				386909132A44872100582AAD /* Storyboard */,
 				389D321E2A43138C003BDE69 /* Assets.xcassets */,
-				389D32202A43138C003BDE69 /* LaunchScreen.storyboard */,
+				38096E4B2A4376EC0079F20B /* GoogleService-Info.plist */,
 				389D32232A43138C003BDE69 /* Info.plist */,
 			);
 			path = FirebaseAuthentication;
