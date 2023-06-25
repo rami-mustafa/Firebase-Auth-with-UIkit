@@ -11,6 +11,7 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var passwordConfirmationTextField: UITextField!
     
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +27,16 @@ class SignUpViewController: UIViewController {
         if !email.isEmpty && !password.isEmpty && password == passwordConfirm   {
 //            Sign Up
             
+            loadingIndicator.isHidden = false
             Auth.auth().createUser(withEmail: email, password: password) { auth, error in
-                
+                self.loadingIndicator.isHidden = true
+
                 if error == nil {
 //                    Navigate Home
                     self.navigateToHomePage()
                 }else {
-//                    Display an error message 
+//                    Display an error message
+                    self.presentSignUpErrorMessage()
                 }
             }
         } else {

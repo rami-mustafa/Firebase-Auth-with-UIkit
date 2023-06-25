@@ -9,6 +9,7 @@ class LoginViewController: UIViewController {
    
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,8 +24,11 @@ class LoginViewController: UIViewController {
         if !email.isEmpty && !password.isEmpty  {
 //            attempt login
             
+            loadingIndicator.isHidden = false
+            
             Auth.auth().signIn(withEmail: email, password: password) { auth, error in
-                
+                self.loadingIndicator.isHidden = true
+
                 if error == nil {
 //                    Navigate to the home page
                     self.navigateToHomePage()
