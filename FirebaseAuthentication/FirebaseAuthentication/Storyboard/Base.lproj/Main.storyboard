@@ -107,6 +107,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="DCl-1C-fxG">
+                                <rect key="frame" x="333" y="661" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pKE-u1-tiM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -114,6 +118,8 @@
                             <constraint firstItem="pKE-u1-tiM" firstAttribute="bottom" secondItem="vl1-9d-wQ4" secondAttribute="bottom" constant="20" id="5QO-Nh-zF7"/>
                             <constraint firstItem="3Ya-cX-0tu" firstAttribute="leading" secondItem="pKE-u1-tiM" secondAttribute="leading" constant="20" id="89B-sl-Oq0"/>
                             <constraint firstItem="V8f-4u-6Ni" firstAttribute="top" secondItem="ESq-WG-SOj" secondAttribute="bottom" constant="40" id="8PX-5A-m74"/>
+                            <constraint firstItem="DCl-1C-fxG" firstAttribute="trailing" secondItem="V8f-4u-6Ni" secondAttribute="trailing" constant="-20" id="AgK-uP-Rmq"/>
+                            <constraint firstItem="DCl-1C-fxG" firstAttribute="centerY" secondItem="V8f-4u-6Ni" secondAttribute="centerY" id="C1G-Of-lyP"/>
                             <constraint firstItem="0DX-YI-Y65" firstAttribute="leading" secondItem="pKE-u1-tiM" secondAttribute="leading" constant="20" id="Dd9-EP-aKp"/>
                             <constraint firstItem="vl1-9d-wQ4" firstAttribute="top" secondItem="3Ya-cX-0tu" secondAttribute="bottom" constant="20" id="JE6-TL-JYx"/>
                             <constraint firstItem="pKE-u1-tiM" firstAttribute="trailing" secondItem="V8f-4u-6Ni" secondAttribute="trailing" constant="20" id="MgZ-7t-6P3"/>
@@ -133,12 +139,13 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="0DX-YI-Y65" id="wkk-Qm-wOp"/>
+                        <outlet property="loadingIndicator" destination="DCl-1C-fxG" id="be9-Lw-kc3"/>
                         <outlet property="passwordTextField" destination="ESq-WG-SOj" id="swO-4Q-Huk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjL-4U-Je8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="744" y="-10"/>
+            <point key="canvasLocation" x="742.74809160305335" y="-10.563380281690142"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="Pfj-73-o4m">
@@ -162,6 +169,9 @@
                                 <state key="normal" title="Sign Out">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="onSignOutButton:" destination="ZXD-2N-f8j" eventType="touchUpInside" id="fW3-PF-2qU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yVg-hF-b2R"/>
@@ -175,6 +185,9 @@
                             <constraint firstItem="ypw-39-W86" firstAttribute="leading" secondItem="yVg-hF-b2R" secondAttribute="leading" constant="20" id="vOB-10-Ddj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="homeLabel" destination="sXo-qB-w9g" id="FNX-RZ-rlU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k24-h6-uyV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -248,10 +261,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="xt6-Gb-4wl">
+                                <rect key="frame" x="333" y="661" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="P4Y-lM-D0e"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="xt6-Gb-4wl" firstAttribute="centerY" secondItem="UJc-0u-VnO" secondAttribute="centerY" id="17X-se-ma0"/>
                             <constraint firstItem="LRx-Ps-L46" firstAttribute="top" secondItem="P4Y-lM-D0e" secondAttribute="top" constant="20" id="19e-t3-TXq"/>
                             <constraint firstItem="zCZ-Od-Skz" firstAttribute="top" secondItem="Ns0-SQ-qNK" secondAttribute="bottom" constant="20" id="6bB-vm-6sX"/>
                             <constraint firstItem="P4Y-lM-D0e" firstAttribute="trailing" secondItem="Ns0-SQ-qNK" secondAttribute="trailing" constant="20" id="8MC-Un-2q5"/>
@@ -260,6 +278,7 @@
                             <constraint firstItem="f0w-11-5Ix" firstAttribute="leading" secondItem="P4Y-lM-D0e" secondAttribute="leading" constant="20" id="KPm-k6-vXW"/>
                             <constraint firstItem="zCZ-Od-Skz" firstAttribute="leading" secondItem="P4Y-lM-D0e" secondAttribute="leading" constant="20" id="Kha-Ct-xaM"/>
                             <constraint firstItem="P4Y-lM-D0e" firstAttribute="trailing" secondItem="UJc-0u-VnO" secondAttribute="trailing" constant="20" id="O9A-am-xzy"/>
+                            <constraint firstItem="xt6-Gb-4wl" firstAttribute="trailing" secondItem="UJc-0u-VnO" secondAttribute="trailing" constant="-20" id="PiH-Gr-SPO"/>
                             <constraint firstItem="UJc-0u-VnO" firstAttribute="leading" secondItem="P4Y-lM-D0e" secondAttribute="leading" constant="20" id="Qxk-g0-lIn"/>
                             <constraint firstItem="P4Y-lM-D0e" firstAttribute="trailing" secondItem="LRx-Ps-L46" secondAttribute="trailing" constant="20" id="R6y-0B-77h"/>
                             <constraint firstItem="f0w-11-5Ix" firstAttribute="top" secondItem="phH-yj-K2n" secondAttribute="bottom" constant="20" id="XZM-Sa-OGG"/>
@@ -277,13 +296,14 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="phH-yj-K2n" id="ojZ-ip-igx"/>
+                        <outlet property="loadingIndicator" destination="xt6-Gb-4wl" id="NGZ-eJ-Co2"/>
                         <outlet property="passwordConfirmationTextField" destination="7SB-lj-LBt" id="bfM-Iz-Jxb"/>
                         <outlet property="passwordTextField" destination="f0w-11-5Ix" id="C1q-Q3-nKA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s69-NS-U6R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1408" y="-11"/>
+            <point key="canvasLocation" x="1406.8702290076335" y="-11.267605633802818"/>
         </scene>
     </scenes>
     <resources>
