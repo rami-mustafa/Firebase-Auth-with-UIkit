@@ -13,6 +13,18 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+
+        
+        
+                                                                                      
+//        emailTextField.addBottomBorderWithColor(color: .lightGray, with: 0.5)
+//        passwordTextField.addBottomBorderWithColor(color: .lightGray, with: 0.5)
+
+        
+        
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -73,3 +85,16 @@ class LoginViewController: UIViewController {
         self.view.window?.rootViewController = vc
     }
 }
+
+extension UIView {
+    func addBottomBorderWithColor (color :UIColor , with:CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: 0, y: self.frame.size.height - with, width: self.frame.size.width - 25, height: with)
+        
+        self.layer.addSublayer(border)
+    }
+    
+}
+
+
